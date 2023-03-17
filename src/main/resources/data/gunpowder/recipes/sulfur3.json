@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "minecraft:glowstone"
+  },
+  "result": "gunpowder:sulfur",
+  "experience": 0.1,
+  "cookingtime": 1200
+}

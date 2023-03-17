@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "minecraft:magma_block"
+  },
+  "result": "gunpowder:sulfur",
+  "experience": 0.1,
+  "cookingtime": 200
+}
