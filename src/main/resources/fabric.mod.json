@@ -3,14 +3,14 @@
   "id": "gunpowder",
   "version": "${version}",
 
-  "name": "Gunpowder Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Craftable Gunpowder for Fabric Mod",
+  "description": "Craftable Gunpowder",
   "authors": [
     "ZergV"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://modrinth.com/mod/craftable-gunpowder-for-fabric",
+    "sources": "https://github.com/Agustin-Venegas/gunpowder-mod"
   },
 
   "license": "CC0-1.0",
@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.zergv.gunpowder.ExampleMod"
+      "com.zergv.gunpowder.GunpowderInit"
     ]
   },
   "mixins": [
@@ -32,6 +32,6 @@
     "java": ">=17"
   },
   "suggests": {
-    "another-mod": "*"
+    "another-mod": "Soapistry"
   }
 }
