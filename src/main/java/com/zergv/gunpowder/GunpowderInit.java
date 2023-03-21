@@ -29,16 +29,14 @@ public class GunpowderInit implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
-		//registerItem("Sulfur", new Item(new FabricItemSettings()));
+		LOGGER.info("Loading Gunpowder Mod Items");
 
 		ItemGroup ITEM_GROUP = FabricItemGroup.builder(
 			new Identifier("gunpowder", "ingredients"))
 			.displayName(Text.literal("Ingredients"))
 			.icon(() -> new ItemStack(Items.DIAMOND))
-			.entries((enabledFeatures, entries, operatorEnabled) -> { entries.add(SULFUR); })
+			.entries((enabledFeatures, entries) -> { entries.add(SULFUR); })
 			.build();
 
-		//ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> entries.add(SULFUR));
 	}
 }
