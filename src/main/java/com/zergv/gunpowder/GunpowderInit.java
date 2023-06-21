@@ -6,6 +6,8 @@ import net.minecraft.item.*;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -23,6 +25,11 @@ public class GunpowderInit implements ModInitializer {
 		return Registry.register(Registries.ITEM, new Identifier("gunpowder", name), item);
 	}
 
+	public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(
+			RegistryKeys.ITEM_GROUP,
+			new Identifier("gunpowder", "ingredients")
+	);
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -31,12 +38,11 @@ public class GunpowderInit implements ModInitializer {
 
 		LOGGER.info("Loading Gunpowder Mod Items");
 
-		ItemGroup ITEM_GROUP = FabricItemGroup.builder(
-			new Identifier("gunpowder", "ingredients"))
-			.displayName(Text.literal("Ingredients"))
-			.icon(() -> new ItemStack(Items.DIAMOND))
-			.entries((enabledFeatures, entries) -> { entries.add(SULFUR); })
-			.build();
-
+		Registry.register(Registries.ITEM_GROUP, ITEM_GROUP,
+				FabricItemGroup.builder()
+				.displayName(Text.literal("Ingredients"))
+				.icon(() -> new ItemStack(Items.DIAMOND))
+				.entries((enabledFeatures, entries) -> { entries.add(SULFUR); })
+				.build());
 	}
 }
