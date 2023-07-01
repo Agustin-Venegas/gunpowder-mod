@@ -1,9 +1,8 @@
 package com.zergv.gunpowder;
 
 
-import eu.pb4.polymer.core.api.item.PolymerItem;
-import eu.pb4.polymer.core.api.item.PolymerItemUtils;
-import net.minecraft.client.item.TooltipContext;
+import eu.pb4.polymer.api.item.PolymerItem;
+import eu.pb4.polymer.api.item.PolymerItemUtils;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,10 +23,18 @@ public class Sulfur extends Item implements PolymerItem {
     }
 
     @Override
+    public ItemStack getPolymerItemStack(ItemStack itemStack, @Nullable ServerPlayerEntity player) {
+        ItemStack out = PolymerItemUtils.createItemStack(itemStack, player);
+        out.addEnchantment(Enchantments.LURE, 0);
+        out.setCustomName(Text.translatable("item.gunpowder.sulfur"));
+        return out;
+    }
+
+    /*
     public ItemStack getPolymerItemStack(ItemStack itemStack, TooltipContext context, ServerPlayerEntity player) {
         ItemStack out = PolymerItemUtils.createItemStack(itemStack, context, player);
         out.addEnchantment(Enchantments.LURE, 0);
         out.setCustomName(Text.translatable("item.gunpowder.sulfur"));
         return out;
-    }
+    }*/
 }
